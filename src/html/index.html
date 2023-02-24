@@ -14,11 +14,15 @@
     <link rel="stylesheet" href="./assets/css/main.css" />
     <!-- <link rel="icon" href="./assets/images/favicon.png" /> -->
   </head>
-  <header>
+  <header class="header">
     <h1>LA COCTELERA</h1>
     <h2>¿Qué te apetece?</h2>
     <form class="form js-form">
-      <input type="text" placeholder="¿Qué te apetece tomar?" />
+      <input
+        type="text"
+        placeholder="¿Qué te apetece tomar?"
+        class="js-form__input"
+      />
       <p class="js-form__msg"></p>
       <input type="button" value="BUSCAR" class="js-form__searchBtn" />
       <input type="button" value="RESET" class="js-form__resetBtn" />
@@ -26,22 +30,22 @@
   </header>
   <main>
     <!-- LISTADO MARGARITAS / BÚSQUEDA  -->
-    <h2>Te sugerimos...</h2>
-    <ul class="js-listSearch listSearch">
-      <li>
-        <img />
-        <h3></h3>
-      </li>
-    </ul>
-
+    <section class="">
+      <h2>Te sugerimos...</h2>
+      <ul class="js-listSearch listSearch"></ul>
+    </section>
     <!-- LISTADO FAVORITOS  -->
-    <h2>Tus favoritos</h2>
-    <ul class="js-listFav listFav">
-      <li>
-        <img />
-        <h3></h3>
-      </li>
-    </ul>
+    <section class="fav js-fav">
+      <h2>Tus favoritos</h2>
+      <ul class="js-fav__list">
+        <li>
+          <div>
+            <img />
+            <h3></h3>
+          </div>
+        </li>
+      </ul>
+    </section>
   </main>
   <body>
     <!--<include src="./partials/header.html"></include>

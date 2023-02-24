@@ -5,3 +5,53 @@
 @import 'layout/header';
 @import 'layout/footer';
 @import 'pages/index';
+
+body{
+    margin-left: 50px;
+
+}
+.coctail{
+ 
+    &__div{
+        margin-top: 25px;
+        background-color: blueviolet;
+        width: 300px;
+        height: 300px;
+        max-height: 300px;
+        max-width: 300px;
+        &__img{
+            display: flex;
+            margin: auto;
+            justify-items: center;
+            padding-top: 25px;
+            width: 250px;
+            height: 250px;
+
+        }
+        &__name{
+            display: flex;
+            margin-left:25px;
+            margin-top: 10px;
+            justify-items: center;
+            font-family: 'Roboto';
+            color: deeppink;
+            
+        }
+        &__name--selected{
+            display: flex;
+            margin-left:25px;
+            justify-items: center;
+            font-family: 'Roboto';
+            color: rgb(251, 255, 20);
+            
+        }
+    }
+}
+
+.selected{
+    display: flex;
+    margin-left:25px;
+    justify-items: center;
+    font-family: 'Roboto';
+    background-color: yellow;
+}
