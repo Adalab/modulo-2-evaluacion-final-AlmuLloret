@@ -4,13 +4,23 @@ const inputText = document.querySelector('.js-form__input');
 const searchBtn = document.querySelector('.js-form__searchBtn'); 
 const resetBtn = document.querySelector('.js-form__resetBtn'); 
 const listElement = document.querySelector('.js-listSearch');
-
+const listElementFav = document.querySelector('.js-listFav');
 
 const urlStart = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita';
 const url = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s='; 
 let coctailData = []; 
+let coctailFav = []; 
 
-
+const cocktailFavStored = JSON.parse(localStorage.getItem("favCoctails"));; 
+if (cocktailFavStored) {
+  console.log('SÍ hay FAV coctails en el localStorage'); 
+  coctailFav = cocktailFavStored; 
+  console.log('cocktailFavStored'); 
+  console.log(cocktailFavStored); 
+  console.log('coctailFav'); 
+  console.log(coctailFav); 
+  renderFav(coctailFav); 
+}; 
 
 // Fetch API Margaritas
 const cocktailDatatStored = JSON.parse(localStorage.getItem("coctails"));; 
@@ -62,7 +72,6 @@ function renderCoctail(coctailData){
   
     liElement.appendChild (divElement); 
     return liElement; 
-
 }
 
 function renderCoctailList(coctailData){
@@ -71,8 +80,22 @@ function renderCoctailList(coctailData){
     console.log('Render list please')
     listElement.appendChild (renderCoctail(oneCoctail)) ;
   }
+  // To add the event to each div
   addEventToCoctail(); 
 }
+
+function renderFav(coctailFav){
+  listElementFav.innerHTML=''; 
+  for (const oneCoctail of coctailFav) {
+  console.log('Render fav please')
+  listElementFav.appendChild (renderCoctail(oneCoctail)) ;
+  }
+  localStorage.setItem('favCoctails', JSON.stringify(coctailFav)); 
+}
+
+
+
+
 
 
 function handleSearchBtn(ev){
@@ -107,12 +130,25 @@ function handleResetBtn(){
 
 function handleFav(ev){
   ev.preventDefault; 
-  console.log('ciao'); 
-  console.log(ev.currentTarget);
   ev.currentTarget.classList.toggle('selected');
+  
   const idSelected = ev.currentTarget.id;
-  console.log('idSelected');
-  console.log(idSelected);
+  //To introduce the selected object into coctailSelected (id)
+  const coctailSelected = coctailData.find(coctail => coctail.id === idSelected);
+  console.log (coctailSelected); 
+
+  // To check if it is already on the favorites array
+  const indexCoctail = coctailFav.findIndex(palette => palette.id === idSelected)
+  console.log(indexCoctail);
+  
+  if (indexCoctail === -1) { // Returns -1 if it is not on the fav array
+    coctailFav.push(coctailSelected);
+  } else { // To eliminate if it is on the fav array
+      coctailFav.splice(indexCoctail, 1);
+  }
+  //Render favorites:
+  console.log(coctailFav);
+  renderFav(coctailFav);
 
 }
 
