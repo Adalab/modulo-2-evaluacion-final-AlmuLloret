@@ -49,12 +49,22 @@ if (cocktailDatatStored) {
 
 
 function renderCoctail(coctailData){
+    
+    const alreadyFav = coctailFav.find (oneCoctailFav => coctailData.id===oneCoctailFav.id); 
+
+    console.log (alreadyFav); 
+
+
     const liElement = document.createElement('li');
     const divElement = document.createElement('div');
 
     liElement.setAttribute ('class', 'coctail'); 
     divElement.setAttribute ('class', 'coctail__div js-coctail'); 
     divElement.setAttribute ('id', `${coctailData.id}`); 
+
+    if (alreadyFav !== undefined){
+      divElement.setAttribute ('class', 'coctail__div js-coctail selected'); 
+    }
     
     const imgElement = document.createElement('img');
     imgElement.setAttribute ('src', coctailData.image); 
@@ -106,26 +116,28 @@ function handleSearchBtn(ev){
   fetch(`${url}${searchValue}`)
     .then((response) => response.json())
     .then((data) => {
-    console.log('1');
-    console.log(data.drinks);
     coctailData = data.drinks.map((drinks) => ({
     name: drinks.strDrink,
     id: drinks.idDrink,
     image:drinks.strDrinkThumb, 
   }));
-    console.log('2');
-    console.log(coctailData);
     const searchList = coctailData.filter(coctail => coctail.name.toLowerCase().includes(searchValue.toLowerCase()));
-    console.log('3');
+    // To check if there is any objet in the searchList array that it is already in the coctailFav array. If so, it should be marked as favorite - Add selected class. 
+    console.log('searchList');
     console.log(searchList);
+
+    
     renderCoctailList(searchList);
     
   });
 }
 
-function handleResetBtn(){
+function handleResetBtn(){ // Aquí hay trabajo :) 
   console.log('reset')
   localStorage.removeItem("coctails"); 
+  localStorage.removeItem("favCoctails"); 
+  // Borrar la lista de fav 
+
 } 
 
 function handleFav(ev){
