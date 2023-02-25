@@ -6,6 +6,7 @@ const resetBtn = document.querySelector('.js-form__resetBtn');
 const listElement = document.querySelector('.js-listSearch');
 const listElementFav = document.querySelector('.js-listFav');
 const msgNotFound = document.querySelector('.js-form__msg');
+const resetFavBtn = document.querySelector('.js-fav__input');
 
 const imgPlaceholder='https://via.placeholder.com/210x295/ffffff/666666/?text=TV'; 
 
@@ -38,8 +39,7 @@ if (cocktailDatatStored) {
           renderCoctailList(coctailData); 
           localStorage.setItem('coctails', JSON.stringify(coctailData)); 
       });    
-      // Mensaje de error 
-      //.catch((error) => console.log(`Ha sucedido un error: ${error}`));
+     
 }; 
 
 function renderCoctail(coctailData){
@@ -117,7 +117,7 @@ function handleSearchBtn(ev){
 
   fetch(`${url}${searchValue}`)
     .then((response) => response.json())
-    .then((data) => {
+    .then((data) => { 
     coctailData = data.drinks.map((drinks) => ({
     name: drinks.strDrink,
     id: drinks.idDrink,
@@ -125,8 +125,8 @@ function handleSearchBtn(ev){
   }));
     const searchList = coctailData.filter(coctail => coctail.name.toLowerCase().includes(searchValue.toLowerCase()));
     renderCoctailList(searchList); 
-  });
- }
+});
+}
 
 function handleFav(ev){
   ev.preventDefault; 
@@ -143,6 +143,9 @@ function handleFav(ev){
   } else { // To eliminate if it is on the fav array
     coctailFav.splice(indexCoctail, 1);
   }
+  //To show the reset fav button
+  resetFavBtn.classList.add('fav__input--shown');
+  resetFavBtn.classList.remove('fav__input');
   //Render favorites:
   renderFav(coctailFav);
   renderCoctailList(coctailData); 
@@ -175,8 +178,17 @@ function handleResetBtn(){
   msgNotFound.innerHTML = ''; 
 } 
 
+function handleResetFavBtn(){  
+  localStorage.removeItem("favCoctails"); 
+  coctailFav.length = 0; 
+  renderFav(coctailFav);
+  renderCoctailList(coctailData); 
+  resetFavBtn.classList.remove('fav__input--shown');
+  resetFavBtn.classList.add('fav__input');
+} 
 
 //Events 
 
 searchBtn.addEventListener('click', handleSearchBtn); 
 resetBtn.addEventListener('click', handleResetBtn); 
+resetFavBtn.addEventListener('click', handleResetFavBtn); 
