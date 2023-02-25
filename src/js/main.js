@@ -144,8 +144,13 @@ function handleFav(ev){
     coctailFav.splice(indexCoctail, 1);
   }
   //To show the reset fav button
-  resetFavBtn.classList.add('fav__input--shown');
-  resetFavBtn.classList.remove('fav__input');
+  if (coctailFav.length !== 0){
+    resetFavBtn.classList.add('fav__input--shown');
+    resetFavBtn.classList.remove('fav__input');
+  } else {
+    resetFavBtn.classList.remove('fav__input--shown');
+    resetFavBtn.classList.add('fav__input');
+  }
   //Render favorites:
   renderFav(coctailFav);
   renderCoctailList(coctailData);
