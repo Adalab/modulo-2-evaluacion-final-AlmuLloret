@@ -38,6 +38,8 @@ if (cocktailDatatStored) {
           renderCoctailList(coctailData); 
           localStorage.setItem('coctails', JSON.stringify(coctailData)); 
       });    
+      // Mensaje de error 
+      //.catch((error) => console.log(`Ha sucedido un error: ${error}`));
 }; 
 
 function renderCoctail(coctailData){
@@ -94,6 +96,9 @@ function renderCoctailList(coctailData){
   }
   // To add the event to each div
   addEventToCoctail(); 
+  if (renderCoctail===null){
+    console.log ('no hay'); 
+  }
 }
 
 function renderFav(coctailFav){
@@ -119,13 +124,9 @@ function handleSearchBtn(ev){
     image:drinks.strDrinkThumb, 
   }));
     const searchList = coctailData.filter(coctail => coctail.name.toLowerCase().includes(searchValue.toLowerCase()));
-    if (searchList === null){
-
-    }else{
-    renderCoctailList(searchList);
-    }});
-    msgNotFound.innerHTML = 'bla'
-}
+    renderCoctailList(searchList); 
+  });
+ }
 
 function handleFav(ev){
   ev.preventDefault; 
@@ -145,10 +146,6 @@ function handleFav(ev){
   //Render favorites:
   renderFav(coctailFav);
   renderCoctailList(coctailData); 
-
-
-
-  
 }
 
 function addEventToCoctail() {
@@ -170,7 +167,9 @@ function handleResetBtn(){
   inputText.value = ''; 
   localStorage.removeItem("favCoctails"); 
   coctailFav.length = 0; 
-  //Falta volver a margaritas
+  coctailData.length = 0; 
+  const cocktailDatatStored = JSON.parse(localStorage.getItem("coctails"));
+  coctailData = cocktailDatatStored; 
   renderCoctailList(coctailData); 
   renderFav(coctailFav);
   msgNotFound.innerHTML = ''; 
