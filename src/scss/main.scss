@@ -6,14 +6,53 @@
 @import 'layout/footer';
 @import 'pages/index';
 
+/*font-family: 'Alegreya', serif;
+font-family: 'Cormorant', serif;
+font-family: 'Lobster', cursive;
+font-family: 'Vidaloka', serif;*/
 
 body{
     margin-left: 50px;
     background-color: rgb(35, 25, 35);
     margin:auto; 
     width: 80%; 
-    margin-top:200px;
+    margin-top:80px;
 }
+
+.header {
+    display: flex;
+    margin: auto;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    &__h1{
+    
+
+    }
+    &__h2{
+        font-family: 'Cormorant', serif;
+        margin-top: 20px;
+        font-size: 80px;
+
+    }
+    &__form{
+        margin-top: 50px;
+        border: 3px rgb(240, 151, 199); 
+
+    }
+    &__btn{
+        border: 3px rgb(240, 151, 199); 
+    }
+}
+
+.search{
+    display: flex;
+    flex-direction:row;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+}
+
 .coctail{
  
     &__div{
@@ -22,7 +61,7 @@ body{
         border: solid 5px rgb(240, 151, 199); 
         background-color: rgb(35, 25, 35);
         width: 300px;
-        height: 450px;
+        height: 400px;
         max-height: 450px;
         max-width: 300px;
         &__img{
@@ -32,7 +71,7 @@ body{
             padding-top: 30px;
             width: 240px;
             object-fit: cover;
-            height: 350px;
+            height: 300px;
 
         }
         &__name{
@@ -57,6 +96,17 @@ body{
 }
 
 .fav {
+    display: flex;
+    flex-direction:column;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+
+    &__list{
+        display: flex;
+        flex-direction:row;
+    }
+
     &__input{
         visibility: hidden;
     }

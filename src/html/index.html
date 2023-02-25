@@ -9,6 +9,12 @@
       href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya:wght@700&family=Cormorant:wght@600;700&family=Lobster&family=Vidaloka&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Icons -->
     <script
@@ -22,7 +28,7 @@
     <!-- <link rel="icon" href="./assets/images/favicon.png" /> -->
   </head>
   <header class="header">
-    <h1 class="header__h1">LA COCTELERA</h1>
+    <h1 class="header__h1">*LA COCTELERA*</h1>
     <h2 class="header__h2">¿Qué te apetece tomar hoy?</h2>
     <form class="header__form js-form">
       <input
@@ -30,32 +36,37 @@
         placeholder="¿Qué te apetece tomar?"
         class="js-form__input"
       />
-      <p class="js-form__msg"></p>
-      <input type="button" value="BUSCAR" class="js-form__searchBtn" />
-      <input type="button" value="RESET" class="js-form__resetBtn" />
+      <p class="header__msg js-form__msg"></p>
+      <input
+        type="button"
+        value="BUSCAR"
+        class="header__btn js-form__searchBtn"
+      />
+      <input
+        type="button"
+        value="RESET"
+        class="header__btn js-form__resetBtn"
+      />
     </form>
+    <h3 class="header__h3">Te sugerimos</h3>
   </header>
   <main>
     <!-- LISTADO MARGARITAS / BÚSQUEDA  -->
-    <section class="">
-      <h2>Te sugerimos...</h2>
-      <ul class="js-listSearch listSearch"></ul>
+    <section class="search">
+      <ul class="js-listSearch search"></ul>
     </section>
     <!-- LISTADO FAVORITOS  -->
     <section class="fav js-fav">
-      <h2 class="fav__h2">Tus favoritos</h2>
+      <h3 class="fav__h2">Tus favoritos</h3>
       <input
         type="button"
         value="Borrar favoritos"
         class="fav__input js-fav__input"
       />
-      <ul class="js-listFav"></ul>
+      <ul class="fav__list js-listFav"></ul>
     </section>
   </main>
   <body>
-    <!--<include src="./partials/header.html"></include>
-    <include src="./partials/main.html"></include>
-    <include src="./partials/footer.html"></include> -->
     <script src="./assets/js/main.js"></script>
   </body>
 </html>
