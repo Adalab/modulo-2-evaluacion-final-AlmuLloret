@@ -1,5 +1,7 @@
 'use strict';
 
+//Variables
+
 const inputText = document.querySelector('.js-form__input');
 const searchBtn = document.querySelector('.js-form__searchBtn');
 const resetBtn = document.querySelector('.js-form__resetBtn');
@@ -66,16 +68,21 @@ function renderCoctail(coctailData){
   const imgCoctail = document.createTextNode(coctailData.image);
   imgElement.appendChild(imgCoctail);
 
+  // Div that contains the name and image
+  const div2Element = document.createElement('div');
+  div2Element.setAttribute ('class', 'coctail__div__t');
+  divElement.appendChild(div2Element);
+
   const h3Element = document.createElement('h3');
-  h3Element.setAttribute ('class', 'coctail__div__name');
-  divElement.appendChild(h3Element);
+  h3Element.setAttribute ('class', 'coctail__div__t__name');
+  div2Element.appendChild(h3Element);
   const nameCoctail = document.createTextNode(coctailData.name);
   h3Element.appendChild(nameCoctail);
 
   const iElement = document.createElement('i');
-  iElement.setAttribute ('class', 'fa-solid fa-star');
+  iElement.setAttribute ('class', 'fa-regular fa-star coctail__div__t__icon');
   //iElement.setAttribute ('class', 'hidden');
-  divElement.appendChild(iElement);
+  div2Element.appendChild(iElement);
 
   liElement.appendChild (divElement);
 
@@ -130,7 +137,7 @@ function handleSearchBtn(ev){
 
 function handleFav(ev){
   ev.preventDefault;
-  ev.currentTarget.classList.toggle('selected');
+  ev.currentTarget.classList.toggle('coctail--selected');
   //
   const idSelected = ev.currentTarget.id;
   //To introduce the selected object into coctailSelected (id)

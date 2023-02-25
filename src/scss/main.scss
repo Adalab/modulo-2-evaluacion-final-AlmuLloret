@@ -13,52 +13,118 @@ font-family: 'Vidaloka', serif;*/
 
 body{
     margin-left: 50px;
-    background-color: rgb(35, 25, 35);
+    background: rgb(59,43,59);
+    background: radial-gradient(circle, rgba(59,43,59,1) 0%, rgba(35,25,35,1) 100%);
     margin:auto; 
-    width: 80%; 
-    margin-top:80px;
+    width: 85%; 
+    
 }
 
 .header {
+    width: 85%; 
     display: flex;
     margin: auto;
     align-items: center;
     flex-direction: column;
     justify-content: center;
+    background-color: linear-gradient(to bottom,#f097c7,rgb(243, 198, 222),   9%);
     &__h1{
-    
-
+        margin-top:50px;
+        font-family: 'Cormorant', serif;
     }
     &__h2{
         font-family: 'Cormorant', serif;
-        margin-top: 20px;
+        margin-top: 10px;
         font-size: 80px;
-
+    }
+    &__h3{
+        margin-top: 10px;
+        font-size: 35px;
+        justify-self: flex-start;
     }
     &__form{
-        margin-top: 50px;
-        border: 3px rgb(240, 151, 199); 
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 20px;
+        
+        &__input{
+            height: 10px;
+            border: 3px  rgb(240, 151, 199);
+            width: 100px;
+            margin-bottom: 50px;
 
+        }
+        &__btn{
+            border: 3px rgb(240, 151, 199); 
+        }
     }
-    &__btn{
-        border: 3px rgb(240, 151, 199); 
-    }
+  
 }
 
 .search{
     display: flex;
     flex-direction:row;
-    margin: auto;
+    margin-top: 10px; 
     align-items: center;
     justify-content: center;
 }
 
 .coctail{
- 
+    width: 85%; 
+    display: flex;
+    margin: auto;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
     &__div{
         cursor: pointer;
         margin-top: 25px;
         border: solid 5px rgb(240, 151, 199); 
+        background-color: rgb(35, 25, 35);
+        width: 300px;
+        height: 400px;
+        &__img{
+            display: flex;
+            margin: auto;
+            justify-items: center;
+            padding-top: 30px;
+            width: 240px;
+            object-fit: cover;
+            height: 270px;
+
+        }
+        &__t{
+            display: flex;
+            flex-direction: row;
+            width: 300px;
+            max-width: 300px;
+            justify-content: space-between;
+            margin-top: 25px;
+            font-size: 20px;
+            color: rgb(240, 151, 199);
+            &__name{
+                display: flex;
+                margin-left: 30px;
+                align-content: center;
+                justify-items: center;
+                max-width: 250 px;
+            }
+            &__icon{
+                margin-right: 40px;
+                color: rgb(240, 151, 199);
+                    
+                }
+            }
+        }     
+    }
+
+
+/* Simplificar esto*/
+
+.selected{
+        border: solid 5px rgb(247, 192, 83);
         background-color: rgb(35, 25, 35);
         width: 300px;
         height: 400px;
@@ -74,34 +140,48 @@ body{
             height: 300px;
 
         }
-        &__name{
+        &__t{
             display: flex;
-            margin-left:25px;
+            flex-direction: row;
+            width: 300px;
+            max-width: 300px;
+            justify-content: space-between;
+            align-items: center;
             margin-top: 25px;
-            font-size: 25px;
-            justify-items: center;
-            font-family: 'Roboto';
+            font-size: 20px;
             color: rgb(240, 151, 199);
-            
-        }
-        &__name--selected{
-            display: flex;
-            margin-left:25px;
-            justify-items: center;
-            font-family: 'Roboto';
-            color: rgb(247, 192, 83);
-            
-        }
+            &__name{
+                display: flex;
+                margin-left: 30px;
+                align-content: center;
+                justify-items: center;
+                max-width: 200 px;
+            }
+            &__icon{
+                margin-right: 40px;
+                color: rgb(247, 192, 83);
+            }
+        }     
     }
-}
+
+
+
 
 .fav {
+    width: 85vw; 
     display: flex;
     flex-direction:column;
     margin: auto;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    
+    &__h2{
+     margin-top: 40px;
+    font-size: 35px;
 
+    }
+    
     &__list{
         display: flex;
         flex-direction:row;
@@ -114,14 +194,14 @@ body{
         visibility:visible; 
     }
 }
-.selected{
+/*.selected{
     display: flex;
     margin-left:25px;
     justify-items: center;
     font-family: 'Roboto';
     background-color: yellow;
-}
+}*/
 
 .hidden {
-    display: none;
+    visibility: hidden;
 }

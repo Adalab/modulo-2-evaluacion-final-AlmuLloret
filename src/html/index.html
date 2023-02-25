@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Alegreya:wght@700&family=Cormorant:wght@600;700&family=Lobster&family=Vidaloka&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Alegreya:wght@700&family=Cormorant:wght@600;700&family=Domine&family=Libre+Bodoni&family=Lobster&family=Vidaloka&display=swap"
       rel="stylesheet"
     />
 
@@ -28,27 +28,30 @@
     <!-- <link rel="icon" href="./assets/images/favicon.png" /> -->
   </head>
   <header class="header">
-    <h1 class="header__h1">*LA COCTELERA*</h1>
+    <h1 class="header__h1">LA COCTELERA</h1>
     <h2 class="header__h2">¿Qué te apetece tomar hoy?</h2>
-    <form class="header__form js-form">
-      <input
-        type="text"
-        placeholder="¿Qué te apetece tomar?"
-        class="js-form__input"
-      />
-      <p class="header__msg js-form__msg"></p>
-      <input
-        type="button"
-        value="BUSCAR"
-        class="header__btn js-form__searchBtn"
-      />
-      <input
-        type="button"
-        value="RESET"
-        class="header__btn js-form__resetBtn"
-      />
+    <form class="js-form">
+      <fieldset class="header__form">
+        <input
+          type="text"
+          placeholder="¿Qué te apetece tomar?"
+          class="js-form__input header__form__input"
+        />
+
+        <input
+          type="button"
+          value="BUSCAR"
+          class="header__form__btn js-form__searchBtn"
+        />
+        <input
+          type="button"
+          value="RESET"
+          class="header__form__btn js-form__resetBtn"
+        />
+      </fieldset>
     </form>
-    <h3 class="header__h3">Te sugerimos</h3>
+    <p class="header__msg js-form__msg"></p>
+    <!--<h3 class="header__h3">Te sugerimos</h3>-->
   </header>
   <main>
     <!-- LISTADO MARGARITAS / BÚSQUEDA  -->
