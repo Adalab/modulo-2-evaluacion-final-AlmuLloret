@@ -6,18 +6,23 @@
 @import 'layout/footer';
 @import 'pages/index';
 
+
 body{
     margin-left: 50px;
-
+    background-color: rgb(35, 25, 35);
+    margin:auto; 
+    width: 80%; 
+    margin-top:200px;
 }
 .coctail{
  
     &__div{
         margin-top: 25px;
-        background-color: blueviolet;
+        border: solid 5px rgb(240, 151, 199); 
+        background-color: rgb(35, 25, 35);
         width: 300px;
-        height: 300px;
-        max-height: 300px;
+        height: 450px;
+        max-height: 450px;
         max-width: 300px;
         &__img{
             display: flex;
@@ -25,7 +30,8 @@ body{
             justify-items: center;
             padding-top: 25px;
             width: 250px;
-            height: 250px;
+            contain:cover; 
+            height: 350px;
 
         }
         &__name{
@@ -34,7 +40,7 @@ body{
             margin-top: 10px;
             justify-items: center;
             font-family: 'Roboto';
-            color: deeppink;
+            color: rgb(240, 151, 199);
             
         }
         &__name--selected{
@@ -42,7 +48,7 @@ body{
             margin-left:25px;
             justify-items: center;
             font-family: 'Roboto';
-            color: rgb(251, 255, 20);
+            color: rgb(247, 192, 83);
             
         }
     }
@@ -54,4 +60,8 @@ body{
     justify-items: center;
     font-family: 'Roboto';
     background-color: yellow;
+}
+
+.hidden {
+    display: none;
 }

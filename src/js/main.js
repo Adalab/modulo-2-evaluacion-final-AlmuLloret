@@ -5,6 +5,10 @@ const searchBtn = document.querySelector('.js-form__searchBtn');
 const resetBtn = document.querySelector('.js-form__resetBtn'); 
 const listElement = document.querySelector('.js-listSearch');
 const listElementFav = document.querySelector('.js-listFav');
+const msgNotFound = document.querySelector('.js-form__msg');
+
+const imgPlaceholder='https://via.placeholder.com/210x295/ffffff/666666/?text=TV'; 
+
 
 const urlStart = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita';
 const url = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s='; 
@@ -14,7 +18,7 @@ let coctailFav = [];
 const cocktailFavStored = JSON.parse(localStorage.getItem("favCoctails")); 
 if (cocktailFavStored) {
   coctailFav = cocktailFavStored; 
-  renderFav(coctailFav); 
+  renderFav(coctailFav);
 }; 
 
 // Fetch API Margaritas
@@ -37,6 +41,14 @@ if (cocktailDatatStored) {
 }; 
 
 function renderCoctail(coctailData){
+
+   // To add the placeholder image if the coctail does not have one. 
+    
+    if(coctailData.image === null){
+    coctailData.image=imgPlaceholder
+    }
+    
+    //To paint the div with the coctail image and coctail name: 
     const liElement = document.createElement('li');
     const divElement = document.createElement('div');
 
@@ -56,6 +68,14 @@ function renderCoctail(coctailData){
     divElement.appendChild(h3Element); 
     const nameCoctail = document.createTextNode(coctailData.name); 
     h3Element.appendChild(nameCoctail); 
+
+    // Icon fontawesome
+    const pElement = document.createElement('p');
+
+    pElement.setAttribute ('class', 'js-icon hidden'); 
+    divElement.appendChild(pElement); 
+    const iconCoctail = document.createTextNode('X'); 
+    pElement.appendChild(iconCoctail); 
 
     liElement.appendChild (divElement); 
 
@@ -82,6 +102,8 @@ function renderFav(coctailFav){
   listElementFav.appendChild (renderCoctail(oneCoctail)) ;
   }
   localStorage.setItem('favCoctails', JSON.stringify(coctailFav)); 
+  /* Pruebo aquí qué pasa si meto el evento*/ 
+  addEventToCoctail(); 
 }
 
 function handleSearchBtn(ev){
@@ -97,28 +119,36 @@ function handleSearchBtn(ev){
     image:drinks.strDrinkThumb, 
   }));
     const searchList = coctailData.filter(coctail => coctail.name.toLowerCase().includes(searchValue.toLowerCase()));
+    if (searchList === null){
+
+    }else{
     renderCoctailList(searchList);
-  });
+    }});
+    msgNotFound.innerHTML = 'bla'
 }
 
 function handleFav(ev){
   ev.preventDefault; 
   ev.currentTarget.classList.toggle('selected');
-  
+  //
   const idSelected = ev.currentTarget.id;
   //To introduce the selected object into coctailSelected (id)
   const coctailSelected = coctailData.find(coctail => coctail.id === idSelected);
-
   // To check if it is already on the favorites array
   const indexCoctail = coctailFav.findIndex(palette => palette.id === idSelected)
   
   if (indexCoctail === -1) { // Returns -1 if it is not on the fav array
     coctailFav.push(coctailSelected);
   } else { // To eliminate if it is on the fav array
-      coctailFav.splice(indexCoctail, 1);
+    coctailFav.splice(indexCoctail, 1);
   }
   //Render favorites:
   renderFav(coctailFav);
+  renderCoctailList(coctailData); 
+
+
+
+  
 }
 
 function addEventToCoctail() {
@@ -128,11 +158,22 @@ function addEventToCoctail() {
   }
 }
 
+/* Add event to favList
+function addEventToCoctailFav() {
+  const liCoctailData = document.querySelectorAll(".js-coctail");
+  for (const li of liCoctailData ) {
+      li.addEventListener("click", handleFav);
+  }
+}*/
+
 function handleResetBtn(){ 
+  inputText.value = ''; 
   localStorage.removeItem("favCoctails"); 
   coctailFav.length = 0; 
+  //Falta volver a margaritas
   renderCoctailList(coctailData); 
   renderFav(coctailFav);
+  msgNotFound.innerHTML = ''; 
 } 
 
 
