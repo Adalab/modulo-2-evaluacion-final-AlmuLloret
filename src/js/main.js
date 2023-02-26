@@ -18,11 +18,14 @@ const url = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
 let coctailData = [];
 let coctailFav = [];
 
+// To do when the page loads: 
 const cocktailFavStored = JSON.parse(localStorage.getItem('favCoctails'));
 if (cocktailFavStored) {
   coctailFav = cocktailFavStored;
   renderFav(coctailFav);
 }
+addFavRstBtn (); 
+
 
 // Fetch API Margaritas
 const cocktailDatatStored = JSON.parse(localStorage.getItem('coctails'));
@@ -138,6 +141,7 @@ function handleSearchBtn(ev){
 function handleFav(ev){
   ev.preventDefault;
   ev.currentTarget.classList.toggle('coctail--selected');
+  console.log(ev.currentTarget); 
   //
   const idSelected = ev.currentTarget.id;
   //To introduce the selected object into coctailSelected (id)
@@ -150,14 +154,9 @@ function handleFav(ev){
   } else { // To eliminate if it is on the fav array
     coctailFav.splice(indexCoctail, 1);
   }
-  //To show the reset fav button
-  if (coctailFav.length !== 0){
-    resetFavBtn.classList.add('fav__input--shown');
-    resetFavBtn.classList.remove('fav__input');
-  } else {
-    resetFavBtn.classList.remove('fav__input--shown');
-    resetFavBtn.classList.add('fav__input');
-  }
+  //To show/hide the reset fav button
+  addFavRstBtn (); 
+
   //Render favorites:
   renderFav(coctailFav);
   renderCoctailList(coctailData);
@@ -193,6 +192,19 @@ function handleResetFavBtn() {
   resetFavBtn.classList.remove('fav__input--shown');
   resetFavBtn.classList.add('fav__input');
 }
+
+//function to show/hide the reset fav button
+function addFavRstBtn () {
+  if (coctailFav.length !== 0){
+    resetFavBtn.classList.add('fav__input--shown');
+    resetFavBtn.classList.remove('fav__input');
+  } else {
+    resetFavBtn.classList.remove('fav__input--shown');
+    resetFavBtn.classList.add('fav__input');
+  }
+}
+
+
 
 //Events 
 

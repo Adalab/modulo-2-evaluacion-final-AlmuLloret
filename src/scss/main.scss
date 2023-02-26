@@ -72,6 +72,7 @@ body{
             font-family: 'Domine', serif;
             font-size: 24px;
             color: #f097c7;
+            cursor: pointer;
         }
     }
   
@@ -142,45 +143,18 @@ body{
 .selected{
         border: solid 5px rgb(247, 192, 83);
         background-color: rgb(35, 25, 35);
-        width: 300px;
-        height: 400px;
-        max-height: 450px;
-        max-width: 300px;
-        &__img{
-            display: flex;
-            margin: auto;
-            justify-items: center;
-            padding-top: 30px;
-            width: 240px;
-            object-fit: cover;
-            height: 300px;
-
-        }
+        color: rgb(247, 192, 83);
         &__t{
-            display: flex;
-            flex-direction: row;
-            width: 300px;
-            max-width: 300px;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 25px;
-            font-size: 20px;
-            color: rgb(240, 151, 199);
-            &__name{
-                display: flex;
-                margin-left: 30px;
-                align-content: center;
-                justify-items: center;
-                max-width: 200 px;
             }
             &__icon{
                 margin-right: 40px;
                 color: rgb(247, 192, 83);
             }
         }     
-    }
 
-
+.icon--selected{
+    color: rgb(247, 192, 83);
+}
 
 
 .fav {
@@ -192,12 +166,17 @@ body{
     align-items: center;
     justify-content: center;
     
-    &__h2{
-     margin-top: 40px;
-    font-size: 35px;
-
+    &__div{
+        margin-top: 40px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
     }
-    
+    &__h2{
+        margin-left: 15px;
+        font-size: 30px;
+   
+       }
     &__list{
         display: flex;
         
@@ -211,13 +190,6 @@ body{
         visibility:visible; 
     }
 }
-/*.selected{
-    display: flex;
-    margin-left:25px;
-    justify-items: center;
-    font-family: 'Roboto';
-    background-color: yellow;
-}*/
 
 .hidden {
     display: hidden;
