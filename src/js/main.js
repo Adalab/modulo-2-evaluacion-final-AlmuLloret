@@ -177,12 +177,13 @@ function handleResetBtn() {
   coctailFav.length = 0; 
   coctailData.length = 0; 
   const cocktailDatatStored = JSON.parse(localStorage.getItem('coctails'));
-  coctailData = cocktailDatatStored; 
-  renderCoctailList(coctailData); 
+  coctailData = cocktailDatatStored;
+  renderCoctailList(coctailData);
   renderFav(coctailFav);
   msgNotFound.innerHTML = '';
-  
-} 
+  resetFavBtn.classList.remove('fav__input--shown');
+  resetFavBtn.classList.add('fav__input');
+}
 
 function handleResetFavBtn() {
   localStorage.removeItem('favCoctails');

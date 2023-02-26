@@ -30,25 +30,29 @@
   <header class="header">
     <h1 class="header__h1">LA COCTELERA</h1>
     <h2 class="header__h2">¿Qué te apetece tomar hoy?</h2>
-    <form class="js-form">
-      <fieldset class="header__form">
-        <input
-          type="text"
-          placeholder="¿Qué te apetece tomar?"
-          class="js-form__input header__form__input"
-        />
+    <form class="js-form" class="header__form">
+      <input
+        type="text"
+        placeholder="Busca tu coctail aquí"
+        class="js-form__input header__form__input"
+      />
+      <!--<button class="header__form__btn js-form__searchBtn">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+      <button class="header__form__btn js-form__resetBtn">
+        <i class="fa-sharp fa-solid fa-xmark"></i>
+      </button>-->
 
-        <input
-          type="button"
-          value="BUSCAR"
-          class="header__form__btn js-form__searchBtn"
-        />
-        <input
-          type="button"
-          value="RESET"
-          class="header__form__btn js-form__resetBtn"
-        />
-      </fieldset>
+      <input
+        type="button"
+        value="B"
+        class="header__form__btn js-form__searchBtn"
+      />
+      <input
+        type="button"
+        value="X"
+        class="header__form__btn js-form__resetBtn"
+      />
     </form>
     <p class="header__msg js-form__msg"></p>
     <!--<h3 class="header__h3">Te sugerimos</h3>-->
@@ -60,11 +64,11 @@
     </section>
     <!-- LISTADO FAVORITOS  -->
     <section class="fav js-fav">
-      <h3 class="fav__h2">Tus favoritos</h3>
+      <h3 class="fav__h2">Tus favoritos :</h3>
       <input
         type="button"
-        value="Borrar favoritos"
-        class="fav__input js-fav__input"
+        value="X"
+        class="fav__input js-fav__input header__form__btn"
       />
       <ul class="fav__list js-listFav"></ul>
     </section>
