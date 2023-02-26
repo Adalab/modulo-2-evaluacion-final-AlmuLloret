@@ -16,7 +16,7 @@ body{
     background: rgb(59,43,59);
     background: radial-gradient(circle, rgba(59,43,59,1) 0%, rgba(35,25,35,1) 100%);
     margin:auto; 
-    width: 85%; 
+    
     
 }
 
@@ -80,25 +80,38 @@ body{
 
 .search{
     display: flex;
-    flex-direction:row;
+    margin: auto;
     margin-top: 10px; 
     align-items: center;
-    justify-content: center;
+    width: 1810px; 
+    position: relative; 
+
+    &__container{
+        width: 100%;
+        overflow:hidden;
+        scroll-behavior: smooth;
+
+        &__carrousel{
+            display:flex; 
+
+        }
+    }
 }
 
 .coctail{
     width: 85%; 
     display: flex;
     margin: auto;
-    flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
+
 
     &__div{
-        
+
         margin-top: 25px;
+        margin: auto;
         border: solid 5px rgb(240, 151, 199); 
         background-color: rgb(35, 25, 35);
+        justify-content: center;
         width: 300px;
         height: 400px;
         &__img{
@@ -161,10 +174,8 @@ body{
     width: 85vw; 
     display: flex;
     flex-direction:column;
-    margin: auto;
-    flex-wrap: wrap;
+    margin: auto;  
     align-items: center;
-    justify-content: center;
     
     &__div{
         margin-top: 40px;
@@ -175,11 +186,15 @@ body{
     &__h2{
         margin-left: 15px;
         font-size: 30px;
-   
        }
     &__list{
+        margin-top: 30px;
+
+        width: 90%;
         display: flex;
-        
+        background-color: chartreuse;
+        flex-direction: row;
+        align-content: flex-start; 
         
     }      
     &__input{

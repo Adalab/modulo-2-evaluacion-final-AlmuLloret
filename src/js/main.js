@@ -9,14 +9,16 @@ const listElement = document.querySelector('.js-listSearch');
 const listElementFav = document.querySelector('.js-listFav');
 const msgNotFound = document.querySelector('.js-form__msg');
 const resetFavBtn = document.querySelector('.js-fav__input');
-
+const leftArrow = document.getElementById('js-leftArrow');
+const rightArrow = document.getElementById('js-rightArrow');
+const carrousel=document.querySelector('.js-search__container'); 
 const imgPlaceholder='https://via.placeholder.com/210x295/ffffff/666666/?text=TV';
-
-
 const urlStart = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita';
 const url = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
 let coctailData = [];
 let coctailFav = [];
+
+// Funtions 
 
 // To do when the page loads: 
 const cocktailFavStored = JSON.parse(localStorage.getItem('favCoctails'));
@@ -44,13 +46,13 @@ if (cocktailDatatStored) {
       renderCoctailList(coctailData);
       localStorage.setItem('coctails', JSON.stringify(coctailData));
     });
-
 }
 
 
 //Paints a cocktail with image and data from cocktail json data
 
 function renderCoctail(coctailData){
+
   // To add the placeholder image if the coctail does not have one.
   if(coctailData.image === null){
     coctailData.image=imgPlaceholder;
@@ -205,10 +207,24 @@ function addFavRstBtn () {
 }
 
 
+// Functions to control the carrousel 
+function handleRightArrow(){
+  console.log('pi'); 
+  carrousel.scrollLeft += carrousel.offsetWidth;
+}
+
+function handleLeftArrow(){
+  console.log('pa');
+  carrousel.scrollLeft -= carrousel.offsetWidth;
+}
+
+
 
 //Events 
 
 searchBtn.addEventListener('click', handleSearchBtn);
 resetBtn.addEventListener('click', handleResetBtn);
 resetFavBtn.addEventListener('click', handleResetFavBtn);
+rightArrow.addEventListener('click', handleRightArrow);
+leftArrow.addEventListener('click', handleLeftArrow);
 
