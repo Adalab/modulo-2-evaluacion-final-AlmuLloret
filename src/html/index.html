@@ -88,9 +88,25 @@
         />
         <h3 class="fav__h2">Tus favoritos :</h3>
       </div>
-      <div class="fav__container">
-        <ul class="fav__list js-listFav"></ul>
-      </div>
+      <article class="fav__big__container">
+        <button
+          type="button"
+          class="fav__arrow__left js-favLeftArrow"
+          id="js-favLeftArrow"
+        >
+          <i class="fas fa-angle-left"></i>
+        </button>
+        <div class="fav__container js-favSearch__container">
+          <ul class="fav__list js-listFav fav__container__carrousel"></ul>
+        </div>
+        <button
+          type="button"
+          class="fav__arrow__right js-favRightArrow"
+          id="js-favRightArrow"
+        >
+          <i class="fas fa-angle-right"></i>
+        </button>
+      </article>
     </section>
   </main>
   <body>

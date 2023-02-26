@@ -1,15 +1,4 @@
-@import 'core/variables';
 @import 'core/reset';
-@import 'core/mixins';
-@import 'core/animations';
-@import 'layout/header';
-@import 'layout/footer';
-@import 'pages/index';
-
-/*font-family: 'Alegreya', serif;
-font-family: 'Cormorant', serif;
-font-family: 'Lobster', cursive;
-font-family: 'Vidaloka', serif;*/
 
 body{
     margin-left: 50px;
@@ -116,10 +105,7 @@ body{
     display: flex;
     margin: auto;
     align-items: center;
-
-
     &__div{
-
         margin-top: 25px;
         margin: auto;
         border: solid 5px rgb(240, 151, 199); 
@@ -185,10 +171,13 @@ body{
 
 .fav {
     display: flex;
-    flex-direction:column;
-    margin: auto;  
+    flex-direction: column;
+    margin: auto;
+    margin-top: 10px; 
     align-items: center;
-    background-color: aqua;
+    width: 1925px; 
+    position: relative;
+    margin-bottom: 150px;
     
     &__div{
         margin-top: 40px;
@@ -200,16 +189,42 @@ body{
         margin-left: 15px;
         font-size: 30px;
        }
-    &__container{
-        
+    &__big__container{
+        display: flex;
+    margin: auto;
+    margin-top: 30px; 
+    align-items: center;
+    width: 1925px; 
+    position: relative;
 
     }
+    &__arrow__left{
+        cursor: pointer; 
+        font-size: 60px;
+        background-color: rgb(43,31,43);
+        padding: 10px;
+        color: #f097c7; 
+        margin-right: 10px;            
+    }
+    &__arrow__right{
+        cursor: pointer; 
+        font-size: 60px;
+        background-color: rgb(43,31,43);
+        padding: 10px;
+        color: #f097c7; 
+        margin-left: 10px;            
+    }
+    &__container{
+        width: 100%;
+        overflow:hidden;
+        scroll-behavior: smooth;
+        &__carrousel{
+            display:flex; 
+
+        }
+    }
     &__list{
-        max-width: 1830px;
-        margin-top: 30px;
-        background-color: chartreuse;
-        display: grid;
-        grid-template-columns: repeat (6, 1fr [col-start]);
+      
         
     }      
     &__input{

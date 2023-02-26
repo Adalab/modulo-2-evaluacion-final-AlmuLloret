@@ -11,7 +11,11 @@ const msgNotFound = document.querySelector('.js-form__msg');
 const resetFavBtn = document.querySelector('.js-fav__input');
 const leftArrow = document.getElementById('js-leftArrow');
 const rightArrow = document.getElementById('js-rightArrow');
+const favLeftArrow = document.getElementById('js-favLeftArrow');
+const favRightArrow = document.getElementById('js-favRightArrow');
 const carrousel=document.querySelector('.js-search__container'); 
+const carrouselFav= document.querySelector('.js-favSearch__container'); 
+
 const imgPlaceholder='https://via.placeholder.com/210x295/ffffff/666666/?text=TV';
 const urlStart = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita';
 const url = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
@@ -209,16 +213,20 @@ function addFavRstBtn () {
 
 // Functions to control the carrousel 
 function handleRightArrow(){
-  console.log('pi'); 
   carrousel.scrollLeft += carrousel.offsetWidth;
 }
 
 function handleLeftArrow(){
-  console.log('pa');
   carrousel.scrollLeft -= carrousel.offsetWidth;
 }
 
+function handleFavRightArrow(){
+  carrouselFav.scrollLeft += carrousel.offsetWidth;
+}
 
+function handleFavLeftArrow(){
+  carrouselFav.scrollLeft -= carrousel.offsetWidth;
+}
 
 //Events 
 
@@ -227,4 +235,6 @@ resetBtn.addEventListener('click', handleResetBtn);
 resetFavBtn.addEventListener('click', handleResetFavBtn);
 rightArrow.addEventListener('click', handleRightArrow);
 leftArrow.addEventListener('click', handleLeftArrow);
+favRightArrow.addEventListener('click', handleFavRightArrow);
+favLeftArrow.addEventListener('click', handleFavLeftArrow);
 
