@@ -83,17 +83,30 @@ body{
     margin: auto;
     margin-top: 10px; 
     align-items: center;
-    width: 1810px; 
-    position: relative; 
-
+    width: 1925px; 
+    position: relative;
+    &__arrow__left{
+        cursor: pointer; 
+        font-size: 60px;
+        background-color: rgb(43,31,43);
+        padding: 10px;
+        color: #f097c7; 
+        margin-right: 10px;            
+    }
+    &__arrow__right{
+        cursor: pointer; 
+        font-size: 60px;
+        background-color: rgb(43,31,43);
+        padding: 10px;
+        color: #f097c7; 
+        margin-left: 10px;            
+    }
     &__container{
         width: 100%;
         overflow:hidden;
         scroll-behavior: smooth;
-
         &__carrousel{
             display:flex; 
-
         }
     }
 }
@@ -171,11 +184,11 @@ body{
 
 
 .fav {
-    width: 85vw; 
     display: flex;
     flex-direction:column;
     margin: auto;  
     align-items: center;
+    background-color: aqua;
     
     &__div{
         margin-top: 40px;
@@ -187,21 +200,23 @@ body{
         margin-left: 15px;
         font-size: 30px;
        }
-    &__list{
-        margin-top: 30px;
+    &__container{
+        
 
-        width: 90%;
-        display: flex;
+    }
+    &__list{
+        max-width: 1830px;
+        margin-top: 30px;
         background-color: chartreuse;
-        flex-direction: row;
-        align-content: flex-start; 
+        display: grid;
+        grid-template-columns: repeat (6, 1fr [col-start]);
         
     }      
     &__input{
         visibility: hidden;
         
     }
-    &__input--show{ //esto no funciona
+    &__input--show{ 
         visibility:visible; 
     }
 }

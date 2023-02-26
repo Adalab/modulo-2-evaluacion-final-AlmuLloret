@@ -60,13 +60,21 @@
   <main>
     <!-- LISTADO MARGARITAS / BÚSQUEDA  -->
     <section class="search">
-      <button type="button" class="js-leftArrow" id="js-leftArrow">
+      <button
+        type="button"
+        class="search__arrow__left js-leftArrow"
+        id="js-leftArrow"
+      >
         <i class="fas fa-angle-left"></i>
       </button>
       <div class="search__container js-search__container">
         <ul class="js-listSearch search__container__carrousel"></ul>
       </div>
-      <button type="button" class="js-rightArrow" id="js-rightArrow">
+      <button
+        type="button"
+        class="js-rightArrow search__arrow__right"
+        id="js-rightArrow"
+      >
         <i class="fas fa-angle-right"></i>
       </button>
     </section>
@@ -80,7 +88,9 @@
         />
         <h3 class="fav__h2">Tus favoritos :</h3>
       </div>
-      <ul class="fav__list js-listFav"></ul>
+      <div class="fav__container">
+        <ul class="fav__list js-listFav"></ul>
+      </div>
     </section>
   </main>
   <body>
