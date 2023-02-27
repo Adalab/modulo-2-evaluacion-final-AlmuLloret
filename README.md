@@ -1,6 +1,6 @@
 # Cocktail Search Application
 
-This web application grant you access to a cocktail database. You can search cocktails by its name, mark and unmark them as favorites and storage them for later. These resuts will be kept in the local Storage in case you want to retrieve them after closing this website. 
+This web application grant you access to a cocktail database. You can search cocktails by its name, mark and unmark them as favorites and storage them for later. These resuts will be kept in the local storage in case you want to retrieve them after closing this website. 
 
 It has been built using HTML, SCSS and Javascript. 
 
@@ -29,7 +29,7 @@ The scss follows the same structure of the html file:
 
 ## Javascritp 
 
-We can differenciate different two type of actions on the application: 
+We can differenciate two type of actions on the application: 
 
 - Actions to be made when the page loads: 
 - Actions trigger by the user by clicking a button. 

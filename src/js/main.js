@@ -11,7 +11,7 @@ const msgNotFound = document.querySelector('.js-form__msg');
 const resetFavBtn = document.querySelector('.js-fav__input');
 const leftArrow = document.getElementById('js-leftArrow');
 const rightArrow = document.getElementById('js-rightArrow');
-const carrousel=document.querySelector('.js-search__container'); 
+const carrousel=document.querySelector('.js-search__container');
 const msgFav= document.querySelector('.js-fav__h2'); 
 const imgPlaceholder='https://via.placeholder.com/210x295/ffffff/666666/?text=TV';
 const urlStart = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita';
@@ -142,14 +142,7 @@ function handleSearchBtn(ev){
 
 function handleFav(ev){
   ev.preventDefault();
-  //ev.currentTarget.classList.toggle('coctail--selected');
-  const star=ev.currentTarget.querySelector('.js-star')
-  const nameC=ev.currentTarget.querySelector('.coctail__div__t__name')
-  console.log(star); 
-  star.classList.toggle('.fa-solid');
-  nameC.classList.toggle('.coctail__div__t__name--selected');
-  console.log(nameC); 
-  //
+
   const idSelected = ev.currentTarget.id;
   //To introduce the selected object into coctailSelected (id)
   const coctailSelected = coctailData.find(coctail => coctail.id === idSelected);
@@ -169,7 +162,7 @@ function handleFav(ev){
   renderCoctailList(coctailData);
 }
 
-//Function to add event to all div 
+//Function to add event to all cocktail's div
 function addEventToCoctail() {
   const liCoctailData = document.querySelectorAll('.js-coctail');
   for (const li of liCoctailData ) {
@@ -206,16 +199,16 @@ function addFavRstBtn () {
   if (coctailFav.length !== 0){
     resetFavBtn.classList.add('fav__input--shown');
     resetFavBtn.classList.remove('fav__input');
-    msgFav.innerHTML = 'Tus favoritos :'; 
+    msgFav.innerHTML = 'Tus favoritos :';
   } else {
     resetFavBtn.classList.remove('fav__input--shown');
     resetFavBtn.classList.add('fav__input');
-    msgFav.innerHTML = 'Selecciona el cóctel para añadirlo a favoritos'; 
+    msgFav.innerHTML = 'Selecciona el cóctel para añadirlo a favoritos';
   }
 }
 
 
-// Functions to control the carrousel 
+// Functions to control the carrousel
 function handleRightArrow(){
   carrousel.scrollLeft += carrousel.offsetWidth;
 }
