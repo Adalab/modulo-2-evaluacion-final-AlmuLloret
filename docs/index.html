@@ -9,47 +9,91 @@
       href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya:wght@700&family=Cormorant:wght@600;700&family=Domine&family=Libre+Bodoni&family=Lobster&family=Vidaloka&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Icons -->
+    <script
+      src="https://kit.fontawesome.com/fdfeecc597.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Styles -->
     <link rel="stylesheet" href="./assets/css/main.css" />
+
     <!-- <link rel="icon" href="./assets/images/favicon.png" /> -->
   </head>
   <header class="header">
-    <h1>LA COCTELERA</h1>
-    <h2>¿Qué te apetece?</h2>
-    <form class="form js-form">
+    <h1 class="header__h1">LA COCTELERA</h1>
+    <h2 class="header__h2">¿Qué te apetece tomar hoy?</h2>
+    <form class="js-form" class="header__form">
       <input
         type="text"
-        placeholder="¿Qué te apetece tomar?"
-        class="js-form__input"
+        placeholder="Busca tu coctail aquí"
+        class="js-form__input header__form__input"
       />
-      <p class="js-form__msg"></p>
-      <input type="button" value="BUSCAR" class="js-form__searchBtn" />
-      <input type="button" value="RESET" class="js-form__resetBtn" />
+      <button class="header__form__btn js-form__searchBtn">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+      <button class="header__form__btn js-form__resetBtn">
+        <i class="fa-sharp fa-solid fa-xmark"></i>
+      </button>
+
+      <!--<input
+        type="button"
+        value="B"
+        class="header__form__btn js-form__searchBtn"
+      />
+      <input
+        type="button"
+        value="X"
+        class="header__form__btn js-form__resetBtn"
+      />-->
     </form>
+    <p class="header__msg js-form__msg"></p>
+    <!--<h3 class="header__h3">Te sugerimos</h3>-->
   </header>
   <main>
     <!-- LISTADO MARGARITAS / BÚSQUEDA  -->
-    <section class="">
-      <h2>Te sugerimos...</h2>
-      <ul class="js-listSearch listSearch"></ul>
+    <section class="search">
+      <button
+        type="button"
+        class="search__arrow__left js-leftArrow"
+        id="js-leftArrow"
+      >
+        <i class="fas fa-angle-left"></i>
+      </button>
+      <div class="search__container js-search__container">
+        <ul class="js-listSearch search__container__carrousel"></ul>
+      </div>
+      <button
+        type="button"
+        class="js-rightArrow search__arrow__right"
+        id="js-rightArrow"
+      >
+        <i class="fas fa-angle-right"></i>
+      </button>
     </section>
     <!-- LISTADO FAVORITOS  -->
     <section class="fav js-fav">
-      <h2>Tus favoritos</h2>
-      <ul class="js-listFav"></ul>
+      <div class="fav__div js-fav">
+        <input
+          type="button"
+          value="X"
+          class="fav__input js-fav__input header__form__btn"
+        />
+        <h3 class="fav__h2 js-fav__h2">Tus favoritos :</h3>
+      </div>
+      <div class="fav__container">
+        <ul class="fav__list js-listFav"></ul>
+      </div>
     </section>
   </main>
   <body>
-    <!--<header class="header">
-  <h1>Cambia el título</h1>
-</header>
-    <main class="main">
-
-    </main>
-    <footer class="footer">
-
-    </footer> -->
     <script src="./assets/js/main.js"></script>
   </body>
 </html>
