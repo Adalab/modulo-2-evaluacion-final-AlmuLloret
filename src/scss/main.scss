@@ -1,16 +1,11 @@
 @import 'core/reset';
 
 body{
-    margin-left: 50px;
     background: rgb(59,43,59);
-    background: radial-gradient(circle, rgba(59,43,59,1) 0%, rgba(35,25,35,1) 100%);
-    margin:auto; 
-    
-    
+    background: radial-gradient(circle, rgba(59,43,59,1) 0%, rgba(35,25,35,1) 100%); 
 }
 
 .header {
-    width: 85%; 
     display: flex;
     margin: auto;
     align-items: center;
@@ -121,7 +116,6 @@ body{
             width: 240px;
             object-fit: cover;
             height: 270px;
-
         }
         &__t{
             display: flex;
@@ -138,19 +132,31 @@ body{
                 align-content: center;
                 justify-items: center;
                 max-width: 250 px;
+                &--selected{
+                    color: rgb(247, 207, 5);
+                }
             }
             &__icon{
                 margin-right: 40px;
                 color: rgb(240, 151, 199);
                 cursor: pointer;
-                    
+                &__icon--selected{
+                    color: rgb(247, 207, 5);
+                    }    
                 }
             }
-        }     
-    }
+        }
+     }     
 
 
 /* Simplificar esto*/
+
+.coctail__div__t__icon--selected{
+    margin-right: 40px;
+    color: rgb(247, 207, 5);
+    font-size: 50px;
+    cursor: pointer;     
+}
 
 .selected{
         border: solid 5px rgb(247, 192, 83);
@@ -164,18 +170,12 @@ body{
             }
         }     
 
-.icon--selected{
-    color: rgb(247, 192, 83);
-}
-
 
 .fav {
     display: flex;
     flex-direction: column;
     margin: auto;
-    margin-top: 10px; 
     align-items: center;
-    width: 1820px; 
     position: relative;
     margin-bottom: 150px;
     
@@ -189,28 +189,20 @@ body{
         margin-left: 15px;
         font-size: 30px;
        }
-    &__big__container{
-        display: flex;
-        margin: auto;
-        margin-top: 30px; 
-        align-items: center;
-        width: 1925px; 
-        position: relative;
-
-    }
-    
-    &__list{
-        margin: auto;
-        margin-top: 40px;
-      display: grid; 
-      justify-content: center;
-      grid-template-columns: repeat(6,1fr);
-
+    &__container{
         
+    }   
+    &__list{
+        gap:0px; 
+        margin-top: 40px;
+        width: 1800px; 
+        display: grid; 
+        justify-content: center;
+        margin-left: -43px;
+        grid-template-columns: repeat(6,1fr);    
     }      
     &__input{
-        visibility: hidden;
-        
+        visibility: hidden;     
     }
     &__input--show{ 
         visibility:visible; 

@@ -85,7 +85,7 @@ function renderCoctail(coctailData){
   h3Element.appendChild(nameCoctail);
 
   const iElement = document.createElement('i');
-  iElement.setAttribute ('class', 'fa-regular fa-star coctail__div__t__icon');
+  iElement.setAttribute ('class', 'fa-regular fa-star coctail__div__t__icon js-star');
   //iElement.setAttribute ('class', 'hidden');
   div2Element.appendChild(iElement);
 
@@ -140,14 +140,19 @@ function handleSearchBtn(ev){
 
 function handleFav(ev){
   ev.preventDefault();
-  ev.currentTarget.classList.toggle('coctail--selected');
-  console.log(ev.currentTarget); 
+  //ev.currentTarget.classList.toggle('coctail--selected');
+  const star=ev.currentTarget.querySelector('.js-star')
+  const nameC=ev.currentTarget.querySelector('.coctail__div__t__name')
+  console.log(star); 
+  star.classList.toggle('.fa-solid');
+  nameC.classList.toggle('.coctail__div__t__name--selected');
+  console.log(nameC); 
   //
   const idSelected = ev.currentTarget.id;
   //To introduce the selected object into coctailSelected (id)
   const coctailSelected = coctailData.find(coctail => coctail.id === idSelected);
   // To check if it is already on the favorites array
-  const indexCoctail = coctailFav.findIndex(palette => palette.id === idSelected)
+  const indexCoctail = coctailFav.findIndex(palette => palette.id === idSelected); 
 
   if (indexCoctail === -1) { // Returns -1 if it is not on the fav array
     coctailFav.push(coctailSelected);

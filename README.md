@@ -20,6 +20,11 @@ The application has a very simple html structure. It is divided in three main pa
 
 ## SCSS 
 
+The scss follows the same structure of the html file: 
+
+- Header - Display flex. 
+- Search section - Display flex. 
+- Favorites section - Display grid. 
 
 
 ## Javascritp 
