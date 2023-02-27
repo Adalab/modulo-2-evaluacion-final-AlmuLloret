@@ -132,43 +132,25 @@ body{
                 align-content: center;
                 justify-items: center;
                 max-width: 250 px;
-                &--selected{
-                    color: rgb(247, 207, 5);
-                }
+                
             }
             &__icon{
                 margin-right: 40px;
                 color: rgb(240, 151, 199);
                 cursor: pointer;
-                &__icon--selected{
-                    color: rgb(247, 207, 5);
-                    }    
-                }
+               
             }
         }
      }     
-
+    }
 
 /* Simplificar esto*/
 
 .coctail__div__t__icon--selected{
     margin-right: 40px;
-    color: rgb(247, 207, 5);
-    font-size: 50px;
+    color: rgb(211, 164, 10);
     cursor: pointer;     
 }
-
-.selected{
-        border: solid 5px rgb(247, 192, 83);
-        background-color: rgb(35, 25, 35);
-        color: rgb(247, 192, 83);
-        &__t{
-            }
-            &__icon{
-                margin-right: 40px;
-                color: rgb(247, 192, 83);
-            }
-        }     
 
 
 .fav {

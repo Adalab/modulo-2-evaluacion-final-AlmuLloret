@@ -12,6 +12,7 @@ const resetFavBtn = document.querySelector('.js-fav__input');
 const leftArrow = document.getElementById('js-leftArrow');
 const rightArrow = document.getElementById('js-rightArrow');
 const carrousel=document.querySelector('.js-search__container'); 
+const msgFav= document.querySelector('.js-fav__h2'); 
 const imgPlaceholder='https://via.placeholder.com/210x295/ffffff/666666/?text=TV';
 const urlStart = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita';
 const url = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
@@ -94,7 +95,8 @@ function renderCoctail(coctailData){
   // To check if the coctail is already on the coctailFav array. If so, (!== undefined) it adds the class selected to the div. 
   const alreadyFav = coctailFav.find (oneCoctailFav => coctailData.id===oneCoctailFav.id);
   if (alreadyFav !== undefined){
-    divElement.setAttribute ('class', 'coctail__div js-coctail selected');
+    //divElement.setAttribute ('class', 'coctail__div js-coctail selected');
+    iElement.setAttribute ('class', 'fa-solid fa-star coctail__div__t__icon--selected js-star');
   }
   return liElement;
 }
@@ -196,6 +198,7 @@ function handleResetFavBtn() {
   renderCoctailList(coctailData);
   resetFavBtn.classList.remove('fav__input--shown');
   resetFavBtn.classList.add('fav__input');
+  msgFav.innerHTML = 'Selecciona el cóctel para añadirlo a favoritos'; 
 }
 
 //function to show/hide the reset fav button
@@ -203,9 +206,11 @@ function addFavRstBtn () {
   if (coctailFav.length !== 0){
     resetFavBtn.classList.add('fav__input--shown');
     resetFavBtn.classList.remove('fav__input');
+    msgFav.innerHTML = 'Tus favoritos :'; 
   } else {
     resetFavBtn.classList.remove('fav__input--shown');
     resetFavBtn.classList.add('fav__input');
+    msgFav.innerHTML = 'Selecciona el cóctel para añadirlo a favoritos'; 
   }
 }
 
