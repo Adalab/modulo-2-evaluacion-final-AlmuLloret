@@ -19,18 +19,19 @@ const url = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
 let coctailData = [];
 let coctailFav = [];
 
-// Funtions 
+// Funtions
 
-// To do when the page loads: 
+// When the page loads checks if the local storage contains a list of favorite coctails. If so, it paints the favorite list.
 const cocktailFavStored = JSON.parse(localStorage.getItem('favCoctails'));
 if (cocktailFavStored) {
   coctailFav = cocktailFavStored;
   renderFav(coctailFav);
 }
-addFavRstBtn (); 
+addFavRstBtn ();
 
 
-// Fetch API Margaritas
+// Also, when loading, it checks if the are a list of coctails on the local storage to show on the search bar. If so, it paints the list.
+// If the local storage does not contain the coctail list, it fecths the coctails from the API matching the search 'margarita'. 
 const cocktailDatatStored = JSON.parse(localStorage.getItem('coctails'));
 if (cocktailDatatStored) {
   coctailData = cocktailDatatStored;
@@ -87,20 +88,19 @@ function renderCoctail(coctailData){
 
   const iElement = document.createElement('i');
   iElement.setAttribute ('class', 'fa-regular fa-star coctail__div__t__icon js-star');
-  //iElement.setAttribute ('class', 'hidden');
   div2Element.appendChild(iElement);
 
   liElement.appendChild (divElement);
 
-  // To check if the coctail is already on the coctailFav array. If so, (!== undefined) it adds the class selected to the div. 
+  // To check if the coctail is already on the coctailFav array. If so, (!== undefined) it adds the class selected to the icon.
   const alreadyFav = coctailFav.find (oneCoctailFav => coctailData.id===oneCoctailFav.id);
   if (alreadyFav !== undefined){
-    //divElement.setAttribute ('class', 'coctail__div js-coctail selected');
     iElement.setAttribute ('class', 'fa-solid fa-star coctail__div__t__icon--selected js-star');
   }
   return liElement;
 }
 
+// To paint the search list. It also adds the event to mark/unmark the coctails.
 function renderCoctailList(coctailData) {
   listElement.innerHTML=''; 
   for (const oneCoctail of coctailData) {
@@ -108,9 +108,9 @@ function renderCoctailList(coctailData) {
   }
   // To add the event to each div
   addEventToCoctail();
-
 }
 
+// To paint the favourite list. It also adds the event to mark/unmark the coctails.
 function renderFav(coctailFav){
   listElementFav.innerHTML='';
   for (const oneCoctail of coctailFav) {
@@ -121,6 +121,7 @@ function renderFav(coctailFav){
   addEventToCoctail();
 }
 
+// To fetch the list of objects matching the search input. 
 function handleSearchBtn(ev){
   ev.preventDefault();
   const searchValue= inputText.value;
@@ -140,6 +141,7 @@ function handleSearchBtn(ev){
       }});
 }
 
+// To include/exclude the coctail to the favourite list.
 function handleFav(ev){
   ev.preventDefault();
 
@@ -157,7 +159,7 @@ function handleFav(ev){
   //To show/hide the reset fav button
   addFavRstBtn ();
 
-  //Render favorites:
+  //Render fav and search list:
   renderFav(coctailFav);
   renderCoctailList(coctailData);
 }
@@ -170,6 +172,7 @@ function addEventToCoctail() {
   }
 }
 
+// Reset button
 function handleResetBtn() {
   inputText.value = '';
   localStorage.removeItem('favCoctails');
@@ -184,6 +187,7 @@ function handleResetBtn() {
   resetFavBtn.classList.add('fav__input');
 }
 
+// Favourite reset button
 function handleResetFavBtn() {
   localStorage.removeItem('favCoctails');
   coctailFav.length = 0;
@@ -194,7 +198,7 @@ function handleResetFavBtn() {
   msgFav.innerHTML = 'Selecciona el cóctel para añadirlo a favoritos'; 
 }
 
-//function to show/hide the reset fav button
+//Function to show/hide the reset fav button
 function addFavRstBtn () {
   if (coctailFav.length !== 0){
     resetFavBtn.classList.add('fav__input--shown');

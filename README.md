@@ -51,4 +51,9 @@ We can differenciate two type of actions on the application:
 - Reset the favorite list.
 - Scroll the search list.
 
+## Author 
+
+Almudena Lloret Gallego
+February 2023
+
 
