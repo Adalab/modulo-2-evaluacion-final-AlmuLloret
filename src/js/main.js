@@ -11,11 +11,7 @@ const msgNotFound = document.querySelector('.js-form__msg');
 const resetFavBtn = document.querySelector('.js-fav__input');
 const leftArrow = document.getElementById('js-leftArrow');
 const rightArrow = document.getElementById('js-rightArrow');
-const favLeftArrow = document.getElementById('js-favLeftArrow');
-const favRightArrow = document.getElementById('js-favRightArrow');
 const carrousel=document.querySelector('.js-search__container'); 
-const carrouselFav= document.querySelector('.js-favSearch__container'); 
-
 const imgPlaceholder='https://via.placeholder.com/210x295/ffffff/666666/?text=TV';
 const urlStart = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita';
 const url = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
@@ -110,7 +106,7 @@ function renderCoctailList(coctailData) {
   }
   // To add the event to each div
   addEventToCoctail();
-  
+
 }
 
 function renderFav(coctailFav){
@@ -124,14 +120,12 @@ function renderFav(coctailFav){
 }
 
 function handleSearchBtn(ev){
-  ev.preventDefault;
+  ev.preventDefault();
   const searchValue= inputText.value;
-
   fetch(`${url}${searchValue}`)
     .then((response) => response.json())
     .then(function(data){
       if (data.drinks !== null){
-        console.log(data);
         coctailData = data.drinks.map((drinks) => ({
           name: drinks.strDrink,
           id: drinks.idDrink,
@@ -145,7 +139,7 @@ function handleSearchBtn(ev){
 }
 
 function handleFav(ev){
-  ev.preventDefault;
+  ev.preventDefault();
   ev.currentTarget.classList.toggle('coctail--selected');
   console.log(ev.currentTarget); 
   //
@@ -161,13 +155,14 @@ function handleFav(ev){
     coctailFav.splice(indexCoctail, 1);
   }
   //To show/hide the reset fav button
-  addFavRstBtn (); 
+  addFavRstBtn ();
 
   //Render favorites:
   renderFav(coctailFav);
   renderCoctailList(coctailData);
 }
 
+//Function to add event to all div 
 function addEventToCoctail() {
   const liCoctailData = document.querySelectorAll('.js-coctail');
   for (const li of liCoctailData ) {
@@ -175,12 +170,11 @@ function addEventToCoctail() {
   }
 }
 
-
 function handleResetBtn() {
   inputText.value = '';
   localStorage.removeItem('favCoctails');
-  coctailFav.length = 0; 
-  coctailData.length = 0; 
+  coctailFav.length = 0;
+  coctailData.length = 0;
   const cocktailDatatStored = JSON.parse(localStorage.getItem('coctails'));
   coctailData = cocktailDatatStored;
   renderCoctailList(coctailData);
@@ -220,21 +214,12 @@ function handleLeftArrow(){
   carrousel.scrollLeft -= carrousel.offsetWidth;
 }
 
-function handleFavRightArrow(){
-  carrouselFav.scrollLeft += carrousel.offsetWidth;
-}
 
-function handleFavLeftArrow(){
-  carrouselFav.scrollLeft -= carrousel.offsetWidth;
-}
-
-//Events 
+//Events
 
 searchBtn.addEventListener('click', handleSearchBtn);
 resetBtn.addEventListener('click', handleResetBtn);
 resetFavBtn.addEventListener('click', handleResetFavBtn);
 rightArrow.addEventListener('click', handleRightArrow);
 leftArrow.addEventListener('click', handleLeftArrow);
-favRightArrow.addEventListener('click', handleFavRightArrow);
-favLeftArrow.addEventListener('click', handleFavLeftArrow);
 

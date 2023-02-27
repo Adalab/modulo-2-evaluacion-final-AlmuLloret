@@ -175,7 +175,7 @@ body{
     margin: auto;
     margin-top: 10px; 
     align-items: center;
-    width: 1925px; 
+    width: 1820px; 
     position: relative;
     margin-bottom: 150px;
     
@@ -191,40 +191,21 @@ body{
        }
     &__big__container{
         display: flex;
-    margin: auto;
-    margin-top: 30px; 
-    align-items: center;
-    width: 1925px; 
-    position: relative;
+        margin: auto;
+        margin-top: 30px; 
+        align-items: center;
+        width: 1925px; 
+        position: relative;
 
     }
-    &__arrow__left{
-        cursor: pointer; 
-        font-size: 60px;
-        background-color: rgb(43,31,43);
-        padding: 10px;
-        color: #f097c7; 
-        margin-right: 10px;            
-    }
-    &__arrow__right{
-        cursor: pointer; 
-        font-size: 60px;
-        background-color: rgb(43,31,43);
-        padding: 10px;
-        color: #f097c7; 
-        margin-left: 10px;            
-    }
-    &__container{
-        width: 100%;
-        overflow:hidden;
-        scroll-behavior: smooth;
-        &__carrousel{
-            display:flex; 
-
-        }
-    }
+    
     &__list{
-      
+        margin: auto;
+        margin-top: 40px;
+      display: grid; 
+      justify-content: center;
+      grid-template-columns: repeat(6,1fr);
+
         
     }      
     &__input{

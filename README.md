@@ -1,4 +1,4 @@
-# Cocktail search engine
+# Cocktail Search Application
 
 This web application grant you access to a cocktail database. You can search cocktails by its name, mark and unmark them as favorites and storage them for later. These resuts will be kept in the local Storage in case you want to retrieve them after closing this website. 
 
@@ -45,5 +45,5 @@ We can differenciate different two type of actions on the application:
 - Reset the search and the favorite list. 
 - Reset the favorite list.
 - Scroll the search list.
-- Scroll the favorite list. 
+
 
