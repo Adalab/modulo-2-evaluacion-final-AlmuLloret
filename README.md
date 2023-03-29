@@ -11,7 +11,7 @@ Other resources used are as follows:
 - Font joy 
 - CSS Gradient
 
-## HTML Structure 
+## HTML Structure Cancel changes
 
 The application has a very simple html structure. It is divided in three main parts: 
 - Header: Heading, search input, search button and reset button. 
@@ -56,4 +56,4 @@ We can differenciate two type of actions on the application:
 Almudena Lloret Gallego
 February 2023
 
-
+![coctelería](https://user-images.githubusercontent.com/121821529/228499719-dc58096d-c440-4433-9826-ada55a519fbb.jpeg)
